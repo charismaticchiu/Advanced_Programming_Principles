@@ -1,0 +1,244 @@
+chiux139@kh2120-22:~$ cd csci2041/repo-chiux139/homework/hwk_07/
+chiux139@kh2120-22:~/csci2041/repo-chiux139/homework/hwk_07$ emacs hwk_07.ml
+chiux139@kh2120-22:~/csci2041/repo-chiux139/homework/hwk_07$ emacs hwk_07.ml &
+[1] 9106
+chiux139@kh2120-22:~/csci2041/repo-chiux139/homework/hwk_07$ utop
+---------+------------------------------------------------------------+---------
+         | Welcome to utop version 1.14 (using OCaml version 4.01.0)! |         
+         +------------------------------------------------------------+         
+Findlib has been successfully loaded. Additional directives:
+  #require "package";;      to load a package
+  #list;;                   to list the available packages
+  #camlp4o;;                to load camlp4 (standard syntax)
+  #camlp4r;;                to load camlp4 (revised syntax)
+  #predicates "p,q,...";;   to set these predicates
+  Topfind.reset();;         to force that packages will be reloaded
+  #thread;;                 to enable threads
+
+
+Type #utop_help for help about using utop.
+
+-( 15:37:02 )-< command 0 >--------------------------------------{ counter: 0 }-
+utop # let rec
+ is_elem_with f el lst =
+match lst with
+| hd::tl -> if f el hd then true else is_elem_with f el tl
+| [] -> false
+;;
+val is_elem_with : ('a -> 'b -> bool) -> 'a -> 'b list -> bool = <fun>          -( 15:37:04 )-< command 1 >--------------------------------------{ counter: 0 }-utop # let is_elem = is_elem_with (=);;
+val is_elem : '_a -> '_a list -> bool = <fun>                                   -( 15:38:21 )-< command 2 >--------------------------------------{ counter: 0 }-utop # #use"hwk_07.ml";;
+type result =                                                                       OK                                                                            | FileNotFound of string                                                      
+  | IncorrectNumLines of int                                                      | IncorrectLines of (int * int) list                                            | IncorrectLastStanza                                                         val filter : ('a -> bool) -> 'a list -> 'a list = <fun>                         val foldr : ('a -> 'b -> 'b) -> 'b -> 'a list -> 'b = <fun>                     
+val foldl : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a = <fun>
+val map : ('a -> 'b) -> 'a list -> 'b list = <fun>
+val take : int -> 'a list -> 'a list = <fun>
+val drop : int -> 'a list -> 'a list = <fun>
+val is_elem : 'a -> 'a list -> bool = <fun>
+val is_elem_with : ('a -> 'a -> bool) -> 'a -> 'a list -> bool = <fun>
+val length : 'a list -> int = <fun>
+File "hwk_07.ml", line 47, characters 21-22:
+Error: Unbound value f
+-( 15:38:45 )-< command 3 >--------------------------------------{ counter: 0 }-
+utop # #use"hwk_07.ml";;
+type result =                                                                       OK                                                                            | FileNotFound of string                                                      
+  | IncorrectNumLines of int
+  | IncorrectLines of (int * int) list
+  | IncorrectLastStanza
+val filter : ('a -> bool) -> 'a list -> 'a list = <fun>
+val foldr : ('a -> 'b -> 'b) -> 'b -> 'a list -> 'b = <fun>
+val foldl : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a = <fun>
+val map : ('a -> 'b) -> 'a list -> 'b list = <fun>
+val take : int -> 'a list -> 'a list = <fun>
+val drop : int -> 'a list -> 'a list = <fun>
+val is_elem : 'a -> 'a list -> bool = <fun>
+val is_elem_with : ('a -> 'a -> bool) -> 'a -> 'a list -> bool = <fun>
+val length : 'a list -> int = <fun>
+val fct1 :
+  ('a -> 'a -> bool) * int * 'a list * int list * 'b ->
+  'a -> ('a -> 'a -> bool) * int * 'a list * int list * 'b = <fun>
+val fct2 : int -> 'a list * 'a list list -> 'a list * 'a list list = <fun>
+val split_by : ('a -> 'a -> bool) -> 'a list -> 'a list -> 'a list list = <fun>
+type word = char list
+type line = word list
+val convert_to_non_blank_lines_of_words : string -> char list list list = <fun>
+- : int = 9
+-( 15:43:28 )-< command 4 >--------------------------------------{ counter: 0 }-
+utop # split_by (fun sep x -> sep + 2 = x) [1;3;5;2;7;9;4;11] [1;5];;
+- : int list list = [[1]; [5; 2; 7; 9; 4; 11]]                                  -( 15:45:26 )-< command 5 >--------------------------------------{ counter: 0 }-utop # split_by (fun _ x -> x mod 2 = 0) [1;3;5;2;7;9;4;11] [0];;
+- : int list list = [[]]                                                        -( 15:45:45 )-< command 6 >--------------------------------------{ counter: 0 }-utop # #use"hwk_07.ml";;
+type result =                                                                       OK                                                                            | FileNotFound of string                                                      
+  | IncorrectNumLines of int
+  | IncorrectLines of (int * int) list
+  | IncorrectLastStanza
+val filter : ('a -> bool) -> 'a list -> 'a list = <fun>
+val foldr : ('a -> 'b -> 'b) -> 'b -> 'a list -> 'b = <fun>
+val foldl : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a = <fun>
+val map : ('a -> 'b) -> 'a list -> 'b list = <fun>
+val take : int -> 'a list -> 'a list = <fun>
+val drop : int -> 'a list -> 'a list = <fun>
+val is_elem : 'a -> 'a list -> bool = <fun>
+val is_elem_with : ('a -> 'a -> bool) -> 'a -> 'a list -> bool = <fun>
+val length : 'a list -> int = <fun>
+val fct1 :
+  ('a -> 'a -> bool) * int * 'a list * int list * 'b ->
+  'a -> ('a -> 'a -> bool) * int * 'a list * int list * 'b = <fun>
+val fct2 : int -> 'a list * 'a list list -> 'a list * 'a list list = <fun>
+val split_by : ('a -> 'a -> bool) -> 'a list -> 'a list -> 'a list list = <fun>
+type word = char list
+type line = word list
+val convert_to_non_blank_lines_of_words : string -> char list list list = <fun>
+- : int = 9
+-( 15:46:11 )-< command 7 >--------------------------------------{ counter: 0 }-
+utop # split_by (fun _ x -> x mod 2 = 0) [1;3;5;2;7;9;4;11] [0];;
+- : int list list = [[]]                                                        -( 15:46:20 )-< command 8 >--------------------------------------{ counter: 0 }-utop # #use"hwk_07.ml";;
+type result =                                                                       OK                                                                            | FileNotFound of string                                                      
+  | IncorrectNumLines of int
+  | IncorrectLines of (int * int) list
+  | IncorrectLastStanza
+val filter : ('a -> bool) -> 'a list -> 'a list = <fun>
+val foldr : ('a -> 'b -> 'b) -> 'b -> 'a list -> 'b = <fun>
+val foldl : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a = <fun>
+val map : ('a -> 'b) -> 'a list -> 'b list = <fun>
+val take : int -> 'a list -> 'a list = <fun>
+val drop : int -> 'a list -> 'a list = <fun>
+val is_elem : 'a -> 'a list -> bool = <fun>
+val is_elem_with : ('a -> 'a -> bool) -> 'a -> 'a list -> bool = <fun>
+val length : 'a list -> int = <fun>
+val fct1 :
+  ('a -> 'a -> bool) * int * 'a list * int list * 'b ->
+  'a -> ('a -> 'a -> bool) * int * 'a list * int list * 'b = <fun>
+val fct2 : int -> 'a list * 'a list list -> 'a list * 'a list list = <fun>
+val split_by : ('a -> 'a -> bool) -> 'a list -> 'a list -> 'a list list = <fun>
+type word = char list
+type line = word list
+val convert_to_non_blank_lines_of_words : string -> char list list list = <fun>
+- : int = 9
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+-( 15:46:37 )-< command 9 >--------------------------------------{ counter: 0 }-
+utop # split_by (fun sep x -> sep + 2 = x) [1;3;5;2;7;9;4;11] [1;5];;
+- : int list list = [[1]; [5; 2; 7; 9; 4; 11]]                                  -( 15:48:42 )-< command 10 >-------------------------------------{ counter: 0 }-utop # is_elem_with (fun sep x -> sep + 2 = x) 1 [1;5];;
+- : bool = false                                                                -( 15:57:44 )-< command 11 >-------------------------------------{ counter: 0 }-utop # is_elem_with (fun sep x -> sep + 2 = x) 3 [1;5];;
+- : bool = true                                                                 -( 16:03:09 )-< command 12 >-------------------------------------{ counter: 0 }-utop # is_elem_with (fun sep x -> sep + 2 = x) 7 [1;5];;
+- : bool = false                                                                -( 16:03:15 )-< command 13 >-------------------------------------{ counter: 0 }-utop # #use"hwk_07.ml";;
+type result =                                                                       OK                                                                            | FileNotFound of string                                                      
+  | IncorrectNumLines of int
+  | IncorrectLines of (int * int) list
+  | IncorrectLastStanza
+type word = char list
+type line = word list
+val filter : ('a -> bool) -> 'a list -> 'a list = <fun>
+val foldr : ('a -> 'b -> 'b) -> 'b -> 'a list -> 'b = <fun>
+val foldl : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a = <fun>
+val map : ('a -> 'b) -> 'a list -> 'b list = <fun>
+val take : int -> 'a list -> 'a list = <fun>
+val drop : int -> 'a list -> 'a list = <fun>
+val is_elem : 'a -> 'a list -> bool = <fun>
+File "hwk_07.ml", line 42, characters 39-42:
+Error: Unbound value sep
+Did you mean sec?
+-( 16:03:37 )-< command 14 >-------------------------------------{ counter: 0 }-
+utop # #use"hwk_07.ml";;
+type result =                                                                       OK                                                                            | FileNotFound of string                                                      
+  | IncorrectNumLines of int
+  | IncorrectLines of (int * int) list
+  | IncorrectLastStanza
+type word = char list
+type line = word list
+val filter : ('a -> bool) -> 'a list -> 'a list = <fun>
+val foldr : ('a -> 'b -> 'b) -> 'b -> 'a list -> 'b = <fun>
+val foldl : ('a -> 'b -> 'a) -> 'a -> 'b list -> 'a = <fun>
+val map : ('a -> 'b) -> 'a list -> 'b list = <fun>
+val take : int -> 'a list -> 'a list = <fun>
+val drop : int -> 'a list -> 'a list = <fun>
+val is_elem : 'a -> 'a list -> bool = <fun>
+val is_elem_with : ('a -> 'a -> bool) -> 'a -> 'a list -> bool = <fun>
+val length : 'a list -> int = <fun>
+val fct1 :
+  ('a -> 'a -> bool) * int * 'a list * int list * 'b ->
+  'a -> ('a -> 'a -> bool) * int * 'a list * int list * 'b = <fun>
+val fct2 : int -> 'a list * 'a list list -> 'a list * 'a list list = <fun>
+val split_by : ('a -> 'a -> bool) -> 'a list -> 'a list -> 'a list list = <fun>
+val convert_to_non_blank_lines_of_words : string -> char list list list = <fun>
+- : int = 9
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+- : unit = ()
+-( 16:06:56 )-< command 15 >-------------------------------------{ counter: 0 }-
+utop # is_elem_with (fun sep x -> sep + 2 = x) 7 [1;5];;
+- : bool = true                                                                 -( 16:07:20 )-< command 16 >-------------------------------------{ counter: 0 }-utop # is_elem_with (fun sep x -> sep + 2 = x) 3 [1;5];;
+- : bool = true                                                                 -( 16:07:22 )-< command 17 >-------------------------------------{ counter: 0 }-utop # split_by (fun sep x -> sep + 2 = x) [1;3;5;2;7;9;4;11] [1;5];;
+- : int list list = [[1]; [5; 2]; [9; 4; 11]]                                   -( 16:07:28 )-< command 18 >-------------------------------------{ counter: 0 }-utop # split_by (fun _ x -> x mod 2 = 0) [1;3;5;2;7;9;4;11] [0];;
+- : int list list = [[1; 3; 5]; [7; 9]; [11]]                                   -( 16:07:38 )-< command 19 >-------------------------------------{ counter: 0 }-utop # In_channel.read_all "sdfs";;
+Exception: (Sys_error "sdfs: No such file or directory").                       -( 16:07:46 )-< command 20 >-------------------------------------{ counter: 0 }-utop # In_channel.read_all "not_a_paradelle_wrong_line_count.txt";;
+- : string =                                                                    "When Emma scrunches up her nose and knits her tiny brow,\nWhen Emma scrunches up her nose and knits her tiny brow,\nMy granddaughter spins a happy web of hyphens that connect-her-eyes.\nMy granddaughter spins a happy web of hyphens that connect-her-eyes.\nConnect her up, her brow, her nose, a web of Emma scrunches\nThat, when granddaughter knits, spins tiny hyphens and my happy eyes.\n  \nBut big-spring-sky-blues get old too fast, and early some time near\nBut big-spring-sky-blues get old too fast, and early some time near\nWill dull as she forgets slow what we've already lost.\n  \n  \n\n\n"
+-( 16:12:45 )-< command 21 >-------------------------------------{ counter: 0 }-
+utop # let txt = In_channel.read_all "sdfs";;
+Exception: (Sys_error "sdfs: No such file or directory").                       -( 16:13:09 )-< command 22 >-------------------------------------{ counter: 0 }-utop # txt;;
+Error: Unbound value txt                                                        -( 16:13:40 )-< command 23 >----------------------------------------{ counter: 0 }-utop # let txt = In_channel.read_all "sdfs";;
+Exception: (Sys_error "sdfs: No such file or directory").                          -( 16:14:45 )-< command 24 >-----------------------------------{ counter: 0 }-top # let txt = In_channel.read_all "sdfs";;
+utop # let txt = In_channel.read_all "sdfs";;
++-----------------------------------------------------------------------------( 16:14:45 )-< command 24 >-------------------------------{ counter: 0 }-top # let txt = In_channel.read_all "sdfs";;
+utop # let txt = In_channel.read_all "sdfs";;
++-------------------------------------------------------------------------( 16:14:45 )-< command 24 >-----------------------------{ counter: 0 }-p # let txt = In_channel.read_all "sdfs";;
+utop # let txt = In_channel.read_all "sdfs";;
++---------------------------------------------------------------------( 16:14:45 )-< command 24 >---------------------------------------{ counter: 0 }-
+utop # let txt = In_channel.read_all "sdfs";;
+Exception: (Sys_error "sdfs: No such file or directory").                         -( 16:14:45 )-< command 25 >---------------------------------------{ counter: 0 }-utop # try let txt = In_channel.read_all "sdfs" with Sys_error x -> x;;
+Error: Parse error: "in" expected after [binding] (in [expr])                     -( 16:16:56 )-< command 26 >---------------------------------------{ counter: 0 }-utop # try (let txt = In_channel.read_all "sdfs") with Sys_error x -> x;;
+Error: Parse error: "in" expected after [binding] (in [expr])                     -( 16:17:12 )-< command 27 >---------------------------------------{ counter: 0 }-utop # try (let txt = In_channel.read_all "sdfs" in 1) with Sys_error x -> x;;
+Error: This expression has type string but an expression was expected of type int -( 16:18:03 )-< command 28 >---------------------------------------{ counter: 0 }-utop # try (let txt = In_channel.read_all "sdfs" in "squeegee") with Sys_error x -> x;;
+Characters 9-12:                                                                  Warning 26: unused variable txt.                                                  - : string = "sdfs: No such file or directory"                                    
+-( 16:18:08 )-< command 29 >---------------------------------------{ counter: 0 }-
+utop # try In_channel.read_all "sdfs" with Sys_error x -> x;;
+- : string = "sdfs: No such file or directory"                                    -( 16:18:26 )-< command 30 >---------------------------------------{ counter: 0 }-utop # try In_channel.read_all "sdfs" with Sys_error x -> x | Division_by_zero -> "squeegee";;
+- : string = "sdfs: No such file or directory"                                    -( 16:18:59 )-< command 31 >---------------------------------------{ counter: 0 }-utop # try 1 / 0 with Division_by_zero -> 7;;
+- : int = 7                                                                       -( 16:20:39 )-< command 32 >---------------------------------------{ counter: 0 }-utop # try 4 / 2 with Division_by_zero -> 7;;
+- : int = 2                                                                       -( 16:20:58 )-< command 33 >---------------------------------------{ counter: 0 }-utop # try 4 / 2 with Division_by_zero -> 7 | _ -> 8;;
+- : int = 2                                                                       -( 16:21:14 )-< command 34 >---------------------------------------{ counter: 0 }-utop # split_by (=) [1;2;3;3;3;4] [3];;
+- : int list list = [[1; 2]; []; []; [4]]                                         -( 16:21:50 )-< command 35 >---------------------------------------{ counter: 0 }-utop # filter (fun x -> x <> []) (split_by (=) [1;2;3;3;3;4] [3]);;
+- : int list list = [[1; 2]; [4]]                                                 -( 16:25:15 )-< command 36 >---------------------------------------{ counter: 0 }-utop # filter (fun x -> x < 3) [1;2;3;4;5;6;7];;
+- : int list = [1; 2]                                                             -( 16:25:36 )-< command 37 >---------------------------------------{ counter: 0 }-utop # map (fun x -> filter (fun x -> x <> []) (split_by (=) x [' '])) [['A',' ','B'];['X',' ','Y']];;
+Error: This expression has type 'a * 'b * 'c                                             but an expression was expected of type char                                -( 16:28:20 )-< command 38 >---------------------------------------{ counter: 0 }-
+utop # map (fun x -> filter (fun x -> x <> []) (split_by (=) x [' '])) [['A';' ';'B'];['X';' ';'Y']];;
+- : char list list list = [[[A]; [B]]; [[X]; [Y]]]                                -( 16:32:14 )-< command 39 >---------------------------------------{ counter: 0 }-utop # map (fun x -> filter (fun x -> x <> []) (split_by (=) x [' '])) [['A';' ';' ';'B'];['X';' ';' ';'Y']];;
+- : char list list list = [[[A]; [B]]; [[X]; [Y]]]                                -( 16:32:29 )-< command 40 >---------------------------------------{ counter: 0 }-utop # map (fun x -> filter (fun x -> x <> []) (split_by (=) x [' '])) [['A';' ';' ';'B'];['X';' ';' ';'Y'];[];[' ';' ']];;
+- : char list list list = [[[A]; [B]]; [[X]; [Y]]; []; []]                        -( 16:32:46 )-< command 41 >---------------------------------------{ counter: 0 }-utop # filter (fun x -> x <> []) (map (fun x -> filter (fun x -> x <> []) (split_by (=) x [' '])) [['A';' ';' ';'B'];['X';' ';' ';'Y'];[];[' ';' ']]);;
+- : char list list list = [[[A]; [B]]; [[X]; [Y]]]                                -( 16:33:11 )-< command 42 >---------------------------------------{ counter: 0 }-utop # filter (fun x -> x <> []) [[[A]; [B]]; [[X]; [Y]]; []; []];;
+Error: Unbound constructor A                                                      -( 16:33:43 )-< command 43 >---------------------------------------{ counter: 0 }-utop # filter (fun x -> x <> []) [[['A']; ['B']]; [['X']; ['Y']]; []; []];;
+- : char list list list = [[[A]; [B]]; [[X]; [Y]]]                                -( 16:34:33 )-< command 44 >---------------------------------------{ counter: 0 }-utop # 
++---+------------+-----+-----------+--------------+---------+---+-------+--------+
+|Arg|Arith_status|Array|ArrayLabels|Assert_failure|Backtrace|Bag|Big_int|Bigarray|
++---+------------+-----+-----------+--------------+---------+---+-------+--------+
+
